@@ -33,18 +33,19 @@ pairs = df['info']
 dict = pairs.to_dict()
 dfi = pd.DataFrame.from_dict(dict, orient='index')
 dfi['volumeUsd24h'] = pd.to_numeric(dfi['volumeUsd24h'])
-indexNames = dfi[ dfi['volumeUsd24h'] < 50000 ].index
-dfi.drop(indexNames , inplace=True)
+# sur le volume en 24h
+#indexNames = dfi[ dfi['volumeUsd24h'] < 6000 ].index
+#dfi.drop(indexNames , inplace=True)
 indexNames = dfi[ dfi['enabled'] == 'False' ].index
 dfi.drop(indexNames , inplace=True)
 dfi['change24h'] = pd.to_numeric(dfi['change24h'])
 dfi['price'] = pd.to_numeric(dfi['price'])
 # exemple plage de prix
-indexNames = dfi[ dfi['price'] < 0.001].index
-dfi.drop(indexNames , inplace=True)
+#indexNames = dfi[ dfi['price'] < 0.007].index
+#dfi.drop(indexNames , inplace=True)
 # exemple pour l'achat (que des valeurs baissières)
-indexNames = dfi[ dfi['change24h'] > 0 ].index
-dfi.drop(indexNames , inplace=True)
+#indexNames = dfi[ dfi['change24h'] > 0 ].index
+#dfi.drop(indexNames , inplace=True)
 # retrait divers
 indexNames = dfi[ dfi['name'].str.contains('BULL')].index
 dfi.drop(indexNames , inplace=True)
