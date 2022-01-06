@@ -54,6 +54,11 @@ indexNames = dfi[ dfi['name'].str.contains('HEDGE')].index
 dfi.drop(indexNames , inplace=True)
 indexNames = dfi[ dfi['name'].str.contains('BEAR')].index
 dfi.drop(indexNames , inplace=True)
+indexNames = dfi[ dfi['name'].str.contains('WBTC')].index
+dfi.drop(indexNames , inplace=True)
+indexNames = dfi[ dfi['name'].str.contains('ST')].index
+dfi.drop(indexNames , inplace=True)
+
 indexNames = dfi[ dfi['tokenizedEquity'] == 'True' ].index
 dfi.drop(indexNames , inplace=True)
 #print(dfi.info())
@@ -62,7 +67,7 @@ pairList = dfi.name.values.tolist()
 print(pairList)
 print()
 var =  dfi.shape[0]
-print("Nombre de crypto: ", var, "en", df.quote[1])
+print("Nombre de cryptos: ", var, "en", df.quote[1])
 
 ftx = SpotFtx(
         apiKey='',
