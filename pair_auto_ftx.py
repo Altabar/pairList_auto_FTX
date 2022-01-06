@@ -54,11 +54,10 @@ indexNames = dfi[ dfi['name'].str.contains('HEDGE')].index
 dfi.drop(indexNames , inplace=True)
 indexNames = dfi[ dfi['name'].str.contains('BEAR')].index
 dfi.drop(indexNames , inplace=True)
-indexNames = dfi[ dfi['name'].str.contains('WBTC')].index
-dfi.drop(indexNames , inplace=True)
+#indexNames = dfi[ dfi['name'].str.contains('WBTC')].index
+#dfi.drop(indexNames , inplace=True)
 indexNames = dfi[ dfi['name'].str.contains('ST')].index
 dfi.drop(indexNames , inplace=True)
-
 indexNames = dfi[ dfi['tokenizedEquity'] == 'True' ].index
 dfi.drop(indexNames , inplace=True)
 #print(dfi.info())
